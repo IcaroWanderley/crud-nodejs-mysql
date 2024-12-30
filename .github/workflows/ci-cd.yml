@@ -28,7 +28,8 @@ jobs:
     - name: Install Docker
       run: |
         curl -fsSL https://get.docker.com -o get-docker.sh
-        sh get-docker.sh
+        sudo sh get-docker.sh
+        sudo apt-mark hold containerd
 
     - name: Build Docker image
       run: docker build . -t ${DOCKER_USERNAME}/crud-nodejs-mysql:latest
